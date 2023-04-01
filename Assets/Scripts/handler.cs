@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Android;
 public class handler : MonoBehaviour
 {
 	//DEFAULT HELP WINDOW
@@ -42,6 +43,11 @@ public class handler : MonoBehaviour
 	int currentMainCOlor = -1;
 	int score = 0;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+		//Permission.RequestUserPermission(Permission.ExternalStorageRead);
+    }
     void Start()
     {
 		initialiseColourArray ();

@@ -10,8 +10,23 @@ public class menuhandler : MonoBehaviour
 	public AudioSource movingsoundsource;
 	void Start()
 	{
+		if (!Application.isEditor)
+		{
+			AudioSettings.OnAudioConfigurationChanged += audioconfigchanged;
+		}
+
 	}
-	void Update()
+
+
+	public void audioconfigchanged(bool audiocofigchanged)
+	{
+		if (audiocofigchanged)
+		{
+			if (!movingsoundsource.isPlaying)
+				movingsoundsource.Play();
+		}
+	}
+		void Update()
 	{
 		if (direction == 1) 
 		{
